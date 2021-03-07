@@ -23,6 +23,29 @@ function playSound(e) {
   window.addEventListener('keydown', handleKeyClass);
 
 
+/****** Method 2 for the solution
+
+function playSound(e) {
+    const pressKey = document.querySelectorAll(`[data-key="${e.keyCode}"]`);
+    const pressedKey = pressKey.item(0);
+    const pressedKeyAudio = pressKey.item(1);
+    if(!pressedKeyAudio) return; // stop the function from running altogether
+    pressedKeyAudio.play();
+    pressedKeyAudio.currentTime = 0; //rewind to the start
+    pressedKey.classList.add("playing");
+}
+
+const keys = document.querySelectorAll(".key");
+keys.forEach(key => key.addEventListener("transitionend", removeTransition));
+
+function removeTransition(e) {
+    if (e.propertyName !== "transform") return; // skip if it's not a transform
+    this.classList.remove("playing");
+}
+
+window.addEventListener("keydown", playSound);************/
+
+
 
 
 
