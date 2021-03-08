@@ -1,10 +1,12 @@
 
 // Method 1 for the solution, 2 and 3 are below
 function playSound(e) {
+    //handleKeyClass(e);
     const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
     if (!audio) return;
     audio.currentTime = 0;
     audio.play();
+    handleKeyClass(e);
   }
 
   function handleKeyClass(e) {
@@ -20,9 +22,8 @@ function playSound(e) {
   }
 
   window.addEventListener('keydown', playSound);
-  window.addEventListener('keydown', handleKeyClass);
 
-
+  
 /****** Method 2 for the solution
 
 function playSound(e) {
